@@ -70,6 +70,15 @@ app.get(handlerPathPrefix + '/', function (req, res) {
       renderPathPrefix: renderPathPrefix
     });
 });
+app.get(handlerPathPrefix + '/json', function (req, res) {
+  res.json({
+    message: message,
+    namespace: namespace,
+    pod: podName,
+    node: nodeName + ' (' + nodeOS + ')',
+    container: containerImage + ' (' + containerImageArch + ')'
+  });
+});
 
 // Server
 
